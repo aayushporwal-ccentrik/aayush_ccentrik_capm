@@ -7,6 +7,7 @@
     xmlns:rowmodes="sap.ui.table.rowmodes"
     displayBlock="true">
 <App>
+    <pages>
     <Page title="Purchase Order Management System">
 
         <!-- OPERATION -->
@@ -120,28 +121,28 @@
         </Panel>
 
         <!-- ================= READ ================= -->
-        <Panel headerText="View Purchase Orders" visible="{ui>/showReadPanel}" height="100%">
+        <Panel headerText="View Purchase Orders" visible="{ui>/showReadPanel}" >
 
             <Button text="Load Data" press="onLoadData"/>
 
             <!-- HEADER -->
-            <t:Table rows="{ui>/POHeader}", height="400px">
-            <t:rowMode> 
-                <rowmodes:Auto minRowCount="3"/>
-            </t:rowMode>
+            <t:Table rows="{ui>/POHeader}" visibleRowCount="3 ">
+            <!-- <t:rowMode> 
+                <rowmodes:Fixed rowCount="3"/>
+            </t:rowMode> -->
 
                 <t:columns>
-                    <t:Column><Label text="PO"/><t:template><Text text="{EBELN}"/></t:template></t:Column>
-                    <t:Column><Label text="Date"/><t:template><Text text="{AEDAT}"/></t:template></t:Column>
-                    <t:Column><Label text="Vendor"/><t:template><Text text="{LIFNR}"/></t:template></t:Column>
-                    <t:Column><Label text="Company"/><t:template><Text text="{BUKRS}"/></t:template></t:Column>
-                    <t:Column><Label text="Status"/><t:template><Text text="{STATU}"/></t:template></t:Column>
+                    <t:Column><Label text="PO"/><t:template><Text text="{ui>EBELN}"/></t:template></t:Column>
+                    <t:Column><Label text="Date"/><t:template><Text text="{ui>AEDAT}"/></t:template></t:Column>
+                    <t:Column><Label text="Vendor"/><t:template><Text text="{ui>LIFNR}"/></t:template></t:Column>
+                    <t:Column><Label text="Company"/><t:template><Text text="{ui>BUKRS}"/></t:template></t:Column>
+                    <t:Column><Label text="Status"/><t:template><Text text="{ui>STATU}"/></t:template></t:Column>
                 </t:columns>
 
             </t:Table>
 
             <!-- ITEMS -->
-            <t:Table rows="{ui>/POItems}">
+            <!-- <t:Table rows="{ui>/POItems}">
                     <t:rowMode>
                         <rowmodes:Auto minRowCount="5"/>
                     </t:rowMode>
@@ -155,7 +156,7 @@
                     <t:Column><Label text="Price"/><t:template><Text text="{NETPR}"/></t:template></t:Column>
                 </t:columns>
 
-            </t:Table>
+            </t:Table> -->
 
         </Panel>
 
@@ -195,5 +196,6 @@
         </Panel>
 
     </Page>
+</pages>
 </App>
 </mvc:View>
